@@ -2,7 +2,7 @@ import java.util.*;
 
 import org.w3c.dom.Node;
 
-public class test10_20 {
+class test10_20 {
 	
 	public static class Node {
 		int data;
