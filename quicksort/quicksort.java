@@ -11,10 +11,10 @@ class quicksort {
         }    
     }
 
-   static int[] sort(int[] arr, int l, int h) {
+   static void sort(int[] arr, int l, int h) {
         
         debug("Array: " + Arrays.toString(arr) + "\tl = " + l + "\t h = " + h);
-        if (h <= l) return arr;
+        if (h <= l) return;
         int p = h;
         int q = l;
         debug("\tpivot: arr[" + p + "] = " + arr[p] + "\tq =  arr[" + q + "] = " + arr[q]); 
@@ -33,9 +33,8 @@ class quicksort {
         arr[q] = arr[p];
         arr[p] = temp;
         debug("\nArray: " + Arrays.toString(arr) + "\n");
-        arr = sort(arr, l, q-1);
-        arr = sort(arr, q+1, h);
-        return arr;
+        sort(arr, l, q-1);
+        sort(arr, q+1, h);
     }
 
     public static void main(String[] args) {
@@ -46,7 +45,7 @@ class quicksort {
         if (args.length > 0 && args[0].equals("-debug")) {
            debug_on = true; 
         }
-
-        System.out.println(Arrays.toString(sort(arr,0,arr.length - 1)));
+        sort(arr,0,arr.length-1);
+        System.out.println(Arrays.toString(arr));
     }
 }
